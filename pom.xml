@@ -7,7 +7,6 @@
 	<packaging>war</packaging>
 	<name>csgy6083database</name>
 	<build>
-		<sourceDirectory>src</sourceDirectory>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
