@@ -16,9 +16,9 @@ import org.springframework.data.repository.query.Param;
  */
 public interface UserRepository extends JpaRepository<User, String> {
 
-	@Query("select u from users u where u.username = :userName")
+	@Query("select u from User u where u.username = :userName")
 	User findByUserName(@Param("userName") String userName);
 
-	@Query("select u from users u where u.fname like :name or u.lname like :name")
+	@Query("select u from User u where u.fname like :name or u.lname like :name")
 	List<User> findByName(@Param("name") String name);
 }

@@ -32,7 +32,7 @@ public class UserController {
 	public String signup(Model model) {
 		User user = new User();
 		model.addAttribute("user", user);
-		return "signup";
+		return "firstpage";
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
@@ -53,7 +53,7 @@ public class UserController {
 	public String login(Model model) {
 		User user = new User();
 		model.addAttribute("user", user);
-		return "login";
+		return "dashboard";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
