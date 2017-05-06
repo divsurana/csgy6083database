@@ -24,7 +24,7 @@
 
 	<servlet-mapping>
 		<servlet-name>loginServlet</servlet-name>
-		<url-pattern>*.html</url-pattern>
+		<url-pattern>*.jsp</url-pattern>
 	</servlet-mapping>
 
 	<context-param>
