@@ -1,5 +1,6 @@
 package org.nyu.csgy6083database.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -25,6 +26,7 @@ public class User {
 
 	@NotEmpty
 	@Size(min = 6)
+	@Column(columnDefinition = "text")
 	private String password;
 
 	private String state;
@@ -35,6 +37,7 @@ public class User {
 
 	private String cardnumber;
 
+	@Column(columnDefinition = "text")
 	private String interests;
 
 	private String hometown;
