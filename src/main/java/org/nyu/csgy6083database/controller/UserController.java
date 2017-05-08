@@ -38,10 +38,10 @@ public class UserController {
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signup(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			return "signup";
+			return "firstpage";
 		} else if (userService.isUserExists(user.getUsername())) {
 			model.addAttribute("message", "User Name exists. Try another user name");
-			return "signup";
+			return "firstpage";
 		} else {
 			userService.save(user);
 			model.addAttribute("message", "Saved User details");
@@ -53,13 +53,13 @@ public class UserController {
 	public String login(Model model) {
 		User user = new User();
 		model.addAttribute("user", user);
-		return "dashboard";
+		return "firstpage";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@Valid @ModelAttribute("user") User user, BindingResult result) {
-		String message = result.hasErrors() ? "login"
-				: userService.findByLogin(user.getUsername(), user.getPassword()) ? "success" : "failure";
+		String message = result.hasErrors() ? "firstpage"
+				: userService.findByLogin(user.getUsername(), user.getPassword()) ? "dashboard" : "failure";
 
 		return message;
 
