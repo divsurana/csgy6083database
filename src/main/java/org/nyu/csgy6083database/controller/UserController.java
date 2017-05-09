@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
  *
  */
 
-@Controller
+@Controller("/user")
 @SessionAttributes("user")
 public class UserController {
 
@@ -37,16 +37,20 @@ public class UserController {
 
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signup(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
+
+		String message = "";
 		if (result.hasErrors()) {
-			return "firstpage";
+			message = "firstpage";
 		} else if (userService.isUserExists(user.getUsername())) {
-			model.addAttribute("message", "User Name exists. Try another user name");
-			return "firstpage";
+			model.addAttribute("message", "User Name exists. Try another username.");
+			message = "firstpage";
 		} else {
 			userService.save(user);
 			model.addAttribute("message", "Saved User details");
-			return "redirect:login.html";
+			message = "redirect:login.html";
 		}
+
+		return message;
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -57,11 +61,19 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@Valid @ModelAttribute("user") User user, BindingResult result) {
-		String message = result.hasErrors() ? "firstpage"
-				: userService.findByLogin(user.getUsername(), user.getPassword()) ? "dashboard" : "failure";
+	public String login(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
+
+		String message = "";
+		if (result.hasErrors()) {
+			message = "firstpage";
+		} else if (userService.findByLogin(user.getUsername(), user.getPassword())) {
+			model.addAttribute("message", "Welcome back.");
+			message = "dashboard";
+		} else {
+			model.addAttribute("message", "Login failed. Username or Password incorrect.");
+			message = "firstpage";
+		}
 
 		return message;
-
 	}
 }
