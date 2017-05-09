@@ -1,3 +1,4 @@
+
 <html>
     <head>
 
@@ -41,10 +42,12 @@
 
                     <div class="login-page">
                       <div class="form">
-                        <form class="login-form">
+                        <form class="login-form" action="dashboard.jsp">
                           <input type="text" placeholder="username" style="font-size:18pt;width: 150px;height:30px;"/>
                           <input type="password" placeholder="password" style="font-size:18pt;width: 150px;height:30px;"/>
-                          <button style="font-size:18pt;width: 150px;height:30px;">login</button>
+
+                          <input style="font-size:18pt;width: 150px;height:40px;" type="submit" value="Submit"/>
+
                           <h4>New User? Click <a href="#article2">here</a> to Sign Up</h4>
                         </form>
                       </div>
@@ -54,7 +57,7 @@
 				<!-- Article 1 end -->
                 <article id="article2">
                 <div id="register" class="animate form">
-                            <form  action="" autocomplete="on">
+                            <form  action="dashboard.jsp" autocomplete="on">
                                 <h3> New User? SIGN UP HERE </h3>
                                 <p>
                                     <input style="font-size:18pt;" id="fnamesignup" name="fnamesignup" required="required" type="text" placeholder="First name" />
