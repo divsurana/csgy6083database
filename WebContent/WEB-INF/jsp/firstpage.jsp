@@ -6,7 +6,7 @@
 
         <title>Fundstarter</title>
 
-        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
 
     </head>
 
@@ -163,7 +163,7 @@
 
                     <div class="articleBody clear">
                     	<figure>
-	                    	<a><img src="aboutus.png" width="620" height="340" /></a>
+	                    	<a><img src="${pageContext.request.contextPath}/resources/images/aboutus.png" width="620" height="340" /></a>
                         </figure>
                         <p style ="font-size:18pt;">Fundstarter is a corporation based in Brooklyn, New York, that maintains a global crowdfunding platform focused on creativity. The company's stated mission is to "help bring creative projects to life". People who back Fundstarter projects are offered tangible rewards and/or experiences in exchange for their pledges.</p>
                     </div>
