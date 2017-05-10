@@ -21,6 +21,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public boolean findByLogin(String userName, String password) {
 
 		User user = userRepository.findByUserName(userName);
@@ -29,6 +30,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<User> findByName(String name) {
 		return userRepository.findByName("%" + name + "%");
 	}
@@ -41,6 +43,7 @@ public class UserServiceImpl implements UserService {
 	 * String)
 	 */
 	@Override
+	@Transactional(readOnly = true)
 	public User findByUserName(String userName) {
 		return userRepository.findByUserName(userName);
 	}
@@ -52,6 +55,7 @@ public class UserServiceImpl implements UserService {
 	 * String)
 	 */
 	@Override
+	@Transactional(readOnly = true)
 	public boolean isUserExists(String userName) {
 		return userRepository.findByUserName(userName) != null;
 	}

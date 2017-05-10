@@ -21,7 +21,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
  *
  */
 
-@Controller("/user")
+@Controller
+@RequestMapping("/user")
 @SessionAttributes("user")
 public class UserController {
 
@@ -38,16 +39,13 @@ public class UserController {
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signup(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
 
-		String message = "";
+		String message = "firstpage";
 		if (result.hasErrors()) {
-			message = "firstpage";
 		} else if (userService.isUserExists(user.getUsername())) {
 			model.addAttribute("message", "User Name exists. Try another username.");
-			message = "firstpage";
 		} else {
 			userService.save(user);
-			model.addAttribute("message", "Saved User details");
-			message = "redirect:login.html";
+			model.addAttribute("message", "Saved User details. Please login.");
 		}
 
 		return message;

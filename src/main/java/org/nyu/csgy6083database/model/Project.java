@@ -3,11 +3,15 @@
  */
 package org.nyu.csgy6083database.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -45,31 +49,37 @@ public class Project {
 	}
 
 	@Id
+	@Column(columnDefinition = "char(32)")
 	private String projectid;
 
 	@Column(columnDefinition = "text")
 	private String projectname;
 
+	@ManyToOne
+	@JoinColumn(name = "owner")
 	private User owner;
 
 	@Column(columnDefinition = "text")
 	private String pdesc;
 
+	@ManyToOne
+	@JoinColumn(name = "pcategory")
 	private Category pcategory;
 
+	@Enumerated(EnumType.STRING)
 	private PStatus pstatus;
 
 	private int minfund;
 
 	private int maxfund;
 
-	private Date postingdate;
+	private Timestamp postingdate;
 
-	private Date enddate;
+	private Timestamp enddate;
 
-	private Date actualenddate;
+	private Timestamp actualenddate;
 
-	private Date completiondate;
+	private Timestamp completiondate;
 
 	public String getProjectid() {
 		return projectid;
@@ -135,35 +145,35 @@ public class Project {
 		this.maxfund = maxfund;
 	}
 
-	public Date getPostingdate() {
+	public Timestamp getPostingdate() {
 		return postingdate;
 	}
 
-	public void setPostingdate(Date postingdate) {
+	public void setPostingdate(Timestamp postingdate) {
 		this.postingdate = postingdate;
 	}
 
-	public Date getEnddate() {
+	public Timestamp getEnddate() {
 		return enddate;
 	}
 
-	public void setEnddate(Date enddate) {
+	public void setEnddate(Timestamp enddate) {
 		this.enddate = enddate;
 	}
 
-	public Date getActualenddate() {
+	public Timestamp getActualenddate() {
 		return actualenddate;
 	}
 
-	public void setActualenddate(Date actualenddate) {
+	public void setActualenddate(Timestamp actualenddate) {
 		this.actualenddate = actualenddate;
 	}
 
-	public Date getCompletiondate() {
+	public Timestamp getCompletiondate() {
 		return completiondate;
 	}
 
-	public void setCompletiondate(Date completiondate) {
+	public void setCompletiondate(Timestamp completiondate) {
 		this.completiondate = completiondate;
 	}
 

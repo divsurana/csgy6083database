@@ -3,7 +3,7 @@
  */
 package org.nyu.csgy6083database.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,12 +19,13 @@ import javax.persistence.Table;
 public class Category {
 
 	@Id
+	@Column(columnDefinition = "char(32)")
 	private String categoryid;
 
 	@Column(columnDefinition = "text")
 	private String categoryname;
 
-	private Date categorytime;
+	private Timestamp categorytime;
 
 	public String getCategoryid() {
 		return categoryid;
@@ -42,11 +43,11 @@ public class Category {
 		this.categoryname = categoryname;
 	}
 
-	public Date getCategorytime() {
+	public Timestamp getCategorytime() {
 		return categorytime;
 	}
 
-	public void setCategorytime(Date categorytime) {
+	public void setCategorytime(Timestamp categorytime) {
 		this.categorytime = categorytime;
 	}
 

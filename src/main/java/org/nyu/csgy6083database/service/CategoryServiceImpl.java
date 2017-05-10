@@ -38,6 +38,7 @@ public class CategoryServiceImpl implements CategoryService {
 	 * String)
 	 */
 	@Override
+	@Transactional(readOnly = true)
 	public List<Category> findByName(String name) {
 		return categoryRepository.findByName(name);
 	}
@@ -49,6 +50,7 @@ public class CategoryServiceImpl implements CategoryService {
 	 * org.nyu.csgy6083database.service.CategoryService#find(java.lang.String)
 	 */
 	@Override
+	@Transactional(readOnly = true)
 	public Category find(String name) {
 		return categoryRepository.find(name);
 	}
