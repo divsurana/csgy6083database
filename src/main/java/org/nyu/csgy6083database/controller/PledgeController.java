@@ -5,6 +5,7 @@ package org.nyu.csgy6083database.controller;
 
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.nyu.csgy6083database.model.Pledge;
 import org.nyu.csgy6083database.model.User;
 import org.nyu.csgy6083database.service.PledgeService;
@@ -33,6 +34,7 @@ public class PledgeController {
 	private PledgeService pledgeService;
 	@Autowired
 	private ProjectService projectService;
+	private static final Logger logger = Logger.getLogger(UserController.class);
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid @ModelAttribute("user") User user, @Param("pledge") Pledge pledge, BindingResult result,
@@ -43,6 +45,7 @@ public class PledgeController {
 		} else {
 			pledgeService.save(pledge);
 			model.addAttribute("message", "Pledged successfully.");
+			logger.info("User: " + user.getUsername() + " pledged succesfully.");
 			message = "redirect:/project/viewproject/" + pledge.getProject().getProjectid();
 		}
 
@@ -61,6 +64,7 @@ public class PledgeController {
 				model.addAttribute("pledges", pledgeService.findBilledPledgesOfUser(user));
 			else
 				model.addAttribute("pledges", pledgeService.findPledgeByUser(user));
+			logger.info("User: " + user.getUsername() + " viewing own pledges.");
 			message = "yourpledges";
 		}
 

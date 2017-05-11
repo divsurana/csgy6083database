@@ -34,6 +34,12 @@ public class ProjectController {
 
 	private static final Logger logger = Logger.getLogger(UserController.class);
 
+	@RequestMapping(value = "/newproject", method = RequestMethod.GET)
+	public String newProject(@Valid @ModelAttribute User user, Model model) {
+		logger.info("User: " + user.getUsername() + " posting a new project.");
+		return "postaproject";
+	}
+
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid @ModelAttribute("user") User user, @Param("project") Project project,
 			BindingResult result, Model model) {
@@ -73,6 +79,7 @@ public class ProjectController {
 			message = "errorpage";
 		} else {
 			model.addAttribute("projects", projectService.findRecommendedProjects(user));
+			logger.info("User: " + user.getUsername() + " viewing recommended projects.");
 			message = "viewmanyprojects";
 		}
 
@@ -87,6 +94,7 @@ public class ProjectController {
 			message = "errorpage";
 		} else {
 			model.addAttribute("projects", projectService.findProjectsByCategory(categoryid));
+			logger.info("User: " + user.getUsername() + " viewing category projects.");
 			message = "viewmanyprojects";
 		}
 
