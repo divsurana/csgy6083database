@@ -73,6 +73,20 @@ public class ProjectController {
 		return message;
 	}
 
+	@RequestMapping(value = "/viewproject", method = RequestMethod.GET)
+	public String getProjectByCategory(@Valid @ModelAttribute("user") User user, @Param("categoryid") String categoryid,
+			BindingResult result, Model model) {
+		String message = "";
+		if (result.hasErrors()) {
+
+		} else {
+			model.addAttribute("projects", projectService.findProjectsByCategory(categoryid));
+			message = "viewmanyprojects";
+		}
+
+		return message;
+	}
+
 	@RequestMapping(value = "/viewproject/{projectid}", method = RequestMethod.GET)
 	public String viewProject(@Valid @ModelAttribute("user") User user, @PathVariable String projectId,
 			BindingResult result, Model model) {

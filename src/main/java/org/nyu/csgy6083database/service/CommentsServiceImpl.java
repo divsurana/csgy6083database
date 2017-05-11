@@ -5,6 +5,8 @@ package org.nyu.csgy6083database.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.nyu.csgy6083database.model.Comments;
 import org.nyu.csgy6083database.model.User;
 import org.nyu.csgy6083database.repository.CommentsRepository;
@@ -27,6 +29,7 @@ public class CommentsServiceImpl implements CommentsService {
 	 * @see org.nyu.csgy6083database.service.Service#save(java.lang.Object)
 	 */
 	@Override
+	@Transactional
 	public Comments save(Comments comments) {
 		return commentsRepository.save(comments);
 	}

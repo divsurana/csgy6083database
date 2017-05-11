@@ -68,6 +68,14 @@ public class ProjectServiceImpl implements ProjectService {
 
 	@Override
 	@Transactional(readOnly = true)
+	public List<Project> findProjectsByCategory(String categoryid) {
+		List<String> categories = new ArrayList<>();
+		categories.add(categoryid);
+		return projectRepository.findProjectsByCategories(categories);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
 	public Project findProject(String projectId) {
 		return projectRepository.findOne(projectId);
 	}
