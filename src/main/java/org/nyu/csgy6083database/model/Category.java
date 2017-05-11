@@ -3,6 +3,7 @@
  */
 package org.nyu.csgy6083database.model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -16,7 +17,12 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "category")
-public class Category {
+public class Category implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5602450664309460424L;
 
 	@Id
 	@Column(columnDefinition = "char(32)")

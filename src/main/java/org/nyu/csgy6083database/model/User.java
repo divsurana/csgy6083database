@@ -1,5 +1,7 @@
 package org.nyu.csgy6083database.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,7 +16,12 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -818108065968732161L;
 
 	@Id
 	@Size(min = 6, max = 20)

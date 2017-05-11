@@ -3,6 +3,7 @@
  */
 package org.nyu.csgy6083database.model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -19,7 +20,12 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "pledge")
-public class Pledge {
+public class Pledge implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5123996198566891075L;
 
 	@Id
 	@Column(columnDefinition = "char(32)")

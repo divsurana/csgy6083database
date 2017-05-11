@@ -3,6 +3,7 @@
  */
 package org.nyu.csgy6083database.model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -20,7 +21,12 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "project")
-public class Project {
+public class Project implements Serializable {
+
+	/**
+		 * 
+		 */
+	private static final long serialVersionUID = -2366993613648731747L;
 
 	public enum PStatus {
 		NOTFUNDED("Not funded"),
