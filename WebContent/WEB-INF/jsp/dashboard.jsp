@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <head>
 
     <meta charset="utf-8">
@@ -13,7 +13,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-
+    
     <!-- Custom CSS -->
     <link href="${pageContext.request.contextPath}/resources/css/sb-admin.css" rel="stylesheet">
 
@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard.jsp">Fundstarter</a>
+                <a class="navbar-brand" href="#">Fundstarter</a>
             </div>
             <!-- Top Menu Items -->
 
@@ -62,7 +62,7 @@
 
                 </li>
                     <li>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>${username} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="userprofile.jsp"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -72,7 +72,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="/login"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
 

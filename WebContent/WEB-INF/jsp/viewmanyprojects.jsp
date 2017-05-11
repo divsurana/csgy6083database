@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <style>
 body {
 		background: #cacaca;
@@ -204,7 +204,7 @@ body {
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Dashboard</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">John Smith <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">${username}<span class="caret"></span></a>
         <ul class="dropdown-menu">
            <li>
                             <a href="userprofile.html"><i class="fa fa-fw fa-user"></i> Profile</a>
