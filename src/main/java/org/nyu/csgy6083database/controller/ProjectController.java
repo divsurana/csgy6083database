@@ -50,7 +50,6 @@ public class ProjectController {
 		String message = "";
 
 		if (result.hasErrors()) {
-
 		} else {
 			model.addAttribute("projects", projectService.findProjectByOwner(user));
 			message = "viewmanyprojects";

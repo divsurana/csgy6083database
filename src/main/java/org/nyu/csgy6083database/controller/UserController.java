@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -75,15 +76,19 @@ public class UserController {
 		return message;
 	}
 
-	@RequestMapping(value = "/dashboard", method = RequestMethod.POST)
-	public String viewDashboard(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
+	@RequestMapping(value = "/{username}", method = RequestMethod.GET)
+	public String viewDashboard(@Valid @ModelAttribute("user") User user, @PathVariable String username,
+			BindingResult result, Model model) {
 		String message = "";
 		if (result.hasErrors()) {
-
 		} else {
+			if (!user.getUsername().equals(username))
+				model.addAttribute("fetchUser", userService.findByUserName(username));
+
 			message = "dashboard";
 		}
 
 		return message;
 	}
+
 }

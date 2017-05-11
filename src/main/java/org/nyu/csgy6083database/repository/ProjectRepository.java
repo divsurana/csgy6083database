@@ -25,7 +25,7 @@ public interface ProjectRepository extends JpaRepository<Project, String> {
 	public List<Project> findProjectByOwner(@Param("user") User user);
 
 	// TODO: Get the query for top 5 projects with most likes.
-	@Query("select p from Project p where ")
+	// @Query("select p from Project p where ")
 	public List<Project> findTopProjects();
 
 	/**
