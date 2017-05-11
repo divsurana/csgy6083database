@@ -56,13 +56,15 @@ public class Comments implements Serializable {
 		private static final long serialVersionUID = 6799231914204502710L;
 		private User user;
 		private Project project;
+		private Timestamp commenttime;
 
 		public CommentsId() {
 		}
 
-		public CommentsId(User user, Project project) {
+		public CommentsId(User user, Project project, Timestamp commenttime) {
 			this.user = user;
 			this.project = project;
+			this.commenttime = commenttime;
 		}
 		// equals, hashCode
 	}

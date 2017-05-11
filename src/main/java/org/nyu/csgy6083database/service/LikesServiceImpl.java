@@ -3,7 +3,10 @@
  */
 package org.nyu.csgy6083database.service;
 
+import javax.transaction.Transactional;
+
 import org.nyu.csgy6083database.model.Likes;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,15 +16,18 @@ import org.springframework.stereotype.Service;
 @Service("likesService")
 public class LikesServiceImpl implements LikesService {
 
+	@Autowired
+	private LikesService likesService;
+
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see org.nyu.csgy6083database.service.Service#save(java.lang.Object)
 	 */
 	@Override
-	public Likes save(Likes entity) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional
+	public Likes save(Likes likes) {
+		return likesService.save(likes);
 	}
 
 }
