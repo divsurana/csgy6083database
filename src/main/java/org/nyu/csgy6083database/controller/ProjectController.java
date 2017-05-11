@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -33,19 +34,19 @@ public class ProjectController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid @ModelAttribute("user") User user, @Param("project") Project project,
 			BindingResult result, Model model) {
-		// TODO: Add redirection page.
 		String message = "";
 		if (result.hasErrors()) {
 
 		} else {
 			projectService.save(project);
 			model.addAttribute("message", "Project successfully created.");
+			message = "redirect:/user/" + user.getUsername();
 		}
 
 		return message;
 	}
 
-	@RequestMapping(value = "/projectsbyowner", method = RequestMethod.POST)
+	@RequestMapping(value = "/projectsbyowner", method = RequestMethod.GET)
 	public String getProjectsByOwner(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
 		String message = "";
 
@@ -67,6 +68,21 @@ public class ProjectController {
 		} else {
 			model.addAttribute("projects", projectService.findRecommendedProjects(user));
 			message = "viewmanyprojects";
+		}
+
+		return message;
+	}
+
+	@RequestMapping(value = "/viewproject/{projectid}", method = RequestMethod.GET)
+	public String viewProject(@Valid @ModelAttribute("user") User user, @PathVariable String projectId,
+			BindingResult result, Model model) {
+		String message = "";
+
+		if (result.hasErrors()) {
+
+		} else {
+			model.addAttribute("project", projectService.findProject(projectId));
+			message = "viewoneproject";
 		}
 
 		return message;
