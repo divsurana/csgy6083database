@@ -20,14 +20,14 @@ public interface FollowersRepository extends JpaRepository<Followers, String> {
 	 * @param username
 	 * @return
 	 */
-	@Query("select from followers f where f.userfollowed = :username")
-	public List<Followers> findFollowers(@Param("userName") String username);
+	@Query("select f from Followers f where f.userfollowed = :username")
+	public List<Followers> findFollowers(@Param("username") String username);
 
 	/**
 	 * @param username
 	 * @return
 	 */
-	@Query("select from followers f where f.userfollower = :username")
-	public List<Followers> findFollowed(@Param("userName") String username);
+	@Query("select f from Followers f where f.userfollower = :username")
+	public List<Followers> findFollowed(@Param("username") String username);
 
 }

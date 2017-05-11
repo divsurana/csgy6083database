@@ -6,6 +6,7 @@ package org.nyu.csgy6083database.service;
 import javax.transaction.Transactional;
 
 import org.nyu.csgy6083database.model.Likes;
+import org.nyu.csgy6083database.repository.LikesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Service;
 public class LikesServiceImpl implements LikesService {
 
 	@Autowired
-	private LikesService likesService;
+	private LikesRepository likesRepository;
 
 	/*
 	 * (non-Javadoc)
@@ -27,7 +28,7 @@ public class LikesServiceImpl implements LikesService {
 	@Override
 	@Transactional
 	public Likes save(Likes likes) {
-		return likesService.save(likes);
+		return likesRepository.save(likes);
 	}
 
 }
