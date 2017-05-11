@@ -81,11 +81,11 @@ public class UserController {
 			BindingResult result, Model model) {
 		String message = "";
 		if (result.hasErrors()) {
-		} else {
-			if (!user.getUsername().equals(username))
-				model.addAttribute("fetchUser", userService.findByUserName(username));
-
+		} else if (user.getUsername().equals(username)) {
 			message = "dashboard";
+		} else {
+			model.addAttribute("fetchUser", userService.findByUserName(username));
+			message = "userprofile";
 		}
 
 		return message;
