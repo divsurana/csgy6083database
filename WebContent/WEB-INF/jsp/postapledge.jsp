@@ -1,5 +1,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@page import="org.nyu.csgy6083database.model.Project"%>
+<%@page import="java.util.List"%>
+<%@page import="javax.security.auth.message.callback.PrivateKeyCallback.Request"%>
+
+<%@ page session="true" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <style>
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 * {

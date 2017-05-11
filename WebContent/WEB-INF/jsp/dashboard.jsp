@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@page import="org.nyu.csgy6083database.model.Project"%>
+<%@page import="java.util.List"%>
+<%@page import="javax.security.auth.message.callback.PrivateKeyCallback.Request"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page session="true" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
 
     <meta charset="utf-8">

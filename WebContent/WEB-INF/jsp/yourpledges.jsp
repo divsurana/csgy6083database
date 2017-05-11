@@ -1,4 +1,9 @@
-
+<%@page import="org.nyu.csgy6083database.model.Project"%>
+<%@page import="java.util.List"%>
+<%@page import="javax.security.auth.message.callback.PrivateKeyCallback.Request"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page session="true" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <style>
 body {
 		background: #cacaca;
@@ -204,7 +209,7 @@ body {
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Dashboard</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">John Smith <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">${user.username}<span class="caret"></span></a>
         <ul class="dropdown-menu">
            <li>
                             <a href="userprofile.html"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -226,60 +231,20 @@ body {
 <div id="table">
 	<div class="header-row row">
     <span class="cell primary">Project name</span>
-    <span class="cell">Project description</span>
-		<span class="cell">Category</span>
-     <span class="cell">Minimum Funding</span>
-    <span class="cell">Maximum Funding</span>
-    <span class="cell">End of campaign date</span>
+		<span class="cell">Amount</span>
+     <span class="cell">Time of pledge</span>
+    <span class="cell">Card numbered used</span>
+    <span class="cell">Billed or not</span>
   </div>
   <div class="row">
+  <c:forEach items="${pledges}" var="pl">
 	<input type="radio" name="expand">
-    <span class="cell primary" data-label="Vehicle">2013 Subaru WRX</span>
-    <span class="cell" data-label="Exterior">World Rally Blue</span>
-     <span class="cell" data-label="Interior">Black</span>
-     <span class="cell" data-label="Engine">2.5L H4 Turbo</span>
-    <span class="cell" data-label="Trans">5 Speed</span>
-		<span class="cell" data-label="Trans">5 Speed</span>
+    <span class="cell primary" data-label="Vehicle">${pl.project.projectname}</span>
+    <span class="cell" data-label="Exterior">${pl.amount}</span>
+     <span class="cell" data-label="Interior">${pl.pledgetime}</span>
+     <span class="cell" data-label="Engine">${pl.cardnumber}</span>
+    <span class="cell" data-label="Trans">${pl.isbilled}</span>
   </div>
-  <div class="row">
-	<input type="radio" name="expand">
-    <span class="cell primary" data-label="Vehicle">2013 Subaru WRX STI</span>
-    <span class="cell" data-label="Exterior">Crystal Black Silica</span>
-     <span class="cell" data-label="Interior">Black</span>
-     <span class="cell" data-label="Engine">2.5L H4 Turbo</span>
-     <span class="cell" data-label="Trans">6 Speed</span>
-		 <span class="cell" data-label="Trans">5 Speed</span>
-  </div>
-  <div class="row">
-	<input type="radio" name="expand">
-    <span class="cell primary" data-label="Vehicle">2013 Subaru BRZ</span>
-    <span class="cell" data-label="Exterior">Dark Grey Metallic</span>
-     <span class="cell" data-label="Interior">Black</span>
-     <span class="cell" data-label="Engine">2.0L H4</span>
-     <span class="cell" data-label="Trans">6 Speed</span>
-  </div>
-  <div class="row">
-	<input type="radio" name="expand">
-    <span class="cell primary" data-label="Vehicle">2013 Subaru Legacy</span>
-    <span class="cell" data-label="Exterior">Satin White Pearl</span>
-     <span class="cell" data-label="Interior">Black</span>
-     <span class="cell" data-label="Engine">2.5L H4</span>
-     <span class="cell" data-label="Trans">Auto</span>
-  </div>
-  <div class="row">
-	<input type="radio" name="expand">
-    <span class="cell primary" data-label="Vehicle">2013 Subaru Legacy</span>
-    <span class="cell" data-label="Exterior">Twilight Blue Metallic</span>
-     <span class="cell" data-label="Interior">Black</span>
-     <span class="cell" data-label="Engine">2.5L H4</span>
-     <span class="cell" data-label="Trans">Auto</span>
-  </div>
-  <div class="row">
-	<input type="radio" name="expand">
-    <span class="cell primary" data-label="Vehicle">2013 Subaru Forester</span>
-    <span class="cell" data-label="Exterior">Ice Silver Metallic</span>
-     <span class="cell" data-label="Interior">Black</span>
-     <span class="cell" data-label="Engine">2.5L H4 Turbo</span>
-     <span class="cell" data-label="Trans">Auto</span>
+  
   </div>
 </div>
