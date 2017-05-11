@@ -64,7 +64,7 @@
                   </form>
                 </li>
                 <li>
-                <form action="${pageContext.request.contextPath}/project/save">
+                <form action="${pageContext.request.contextPath}/project/newproject">
                   <input style="height: 50px" type="submit" value="Post a new project!"/>
 				</form>
                 </li>
@@ -72,7 +72,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>${username} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="${pageContext.request.contextPath}/user/${username}"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a href="${pageContext.request.contextPath}/user/profile/${username}"><i class="fa fa-fw fa-user"></i> Profile</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
@@ -101,9 +101,6 @@
                     </li>
                     <li>
                         <a href="${pageContext.request.contextPath}/pledge/mypledges"">Your Pledges</a>
-                    </li>
-                    <li>
-                        <a href="yourlikes.jsp">Things you liked</a>
                     </li>
                 </ul>
             </div>

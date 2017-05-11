@@ -1,3 +1,11 @@
+<meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <title>User Profile with Content Tabs - Design Shack Demo</title>
+  <meta name="author" content="Jake Rocheleau">
+  <link rel="shortcut icon" href="http://designshack.net/favicon.ico">
+  <link rel="icon" href="http://designshack.net/favicon.ico">
+  <link rel="stylesheet" type="text/css" media="all" href="css/stylesup.css">
+  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
 <style>
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 * {
@@ -167,7 +175,7 @@ fieldset {
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Dashboard</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">John Smith <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">${user.username}<span class="caret"></span></a>
         <ul class="dropdown-menu">
            <li>
                             <a href="userprofile.html"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -188,14 +196,14 @@ fieldset {
 <body>
 
 <div class="container">
-  <form:form id="contact" action="project/save" method="post">
+  <form:form id="contact" action="project/save" method="post" modelAttribute="user">
     <h3>Post your own project!</h3>
     <h4>Please fill in all the details</h4>
     <fieldset>
-      <form:input placeholder="Your username" type="text" path="owner" tabindex="1" required autofocus>
+      <form:input placeholder="Your username" type="text" path="owner" tabindex="1" required autofocus/>
     </fieldset>
     <fieldset>
-    <form:select name="category" path="pcategory" id="category" style="font-size:15pt" action: >
+    <form:select name="category" path="pcategory" id="category" style="font-size:15pt" action: />
       <option value="cat0">Project category</option>
       <option value="cat1">Jazz</option>
       <option value="cat2">Pop</option>
@@ -205,25 +213,25 @@ fieldset {
       <option value="cat6">Films</option>
       <option value="cat7">Biology</option>
       <option value="cat8">Computer Science</option>
-    </select>
+    </form:select>
     </fieldset>
     <fieldset>
-      <form:input placeholder="Project description" path="pdesc" type="email" name="pdesc" tabindex="2" required>
+      <form:input placeholder="Project description" path="pdesc" type="email" name="pdesc" tabindex="2" required/>
     </fieldset>
     <fieldset>
-      <form:input placeholder="Minimum funding required" path="minfund" type="tel" tabindex="3" required>
+      <form:input placeholder="Minimum funding required" path="minfund" type="tel" tabindex="3" required/>
     </fieldset>
     <fieldset>
-      <form:input placeholder="Maximum funding" path="maxfund" type="url" tabindex="4" required>
+      <form:input placeholder="Maximum funding" path="maxfund" type="url" tabindex="4" required/>
     </fieldset>
     <fieldset>
-      <form:input placeholder="End of Campaign date" path="enddate" type="url" tabindex="4" required>
+      <form:input placeholder="End of Campaign date" path="enddate" type="url" tabindex="4" required/>
     </fieldset>
     <!--fieldset>
       <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
     </fieldset-->
     <fieldset>
-      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+      <input name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</input>
     </fieldset>
 </form:form>
 </div>

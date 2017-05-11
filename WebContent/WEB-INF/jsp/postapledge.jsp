@@ -210,7 +210,7 @@ fieldset {
       <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
     </fieldset-->
     <fieldset>
-      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+      <input name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</input>
     </fieldset>
 </form:form>
 </div>

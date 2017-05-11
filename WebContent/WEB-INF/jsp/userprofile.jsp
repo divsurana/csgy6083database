@@ -206,7 +206,7 @@ tr:nth-child(even) {
       <a class="navbar-brand" href="#">Fundstarter</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Dashboard</a></li>
+      <li class="active"><a href="${pageContext.request.contextPath}/user/${username}">Dashboard</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">${user.username} <span class="caret"></span></a>
         <ul class="dropdown-menu">
            <li>
@@ -233,7 +233,6 @@ tr:nth-child(even) {
 
       <nav id="profiletabs">
         <ul class="clearfix">
-          <li><a href="#Owned">Projects owned</a></li>
           <li><a href="#Followers">Followers</a></li>
           <li><a href="#Info">Info</a></li>
           <li><a href="#Activity">Activity</a></li>
@@ -260,9 +259,9 @@ tr:nth-child(even) {
         <p>Followers:</p>
 
         <ul id="friendslist" class="clearfix">
-          <li><a href="#"><img src="images/avatar.png" width="22" height="22"> Follower1</a></li>
-          <li><a href="#"><img src="images/avatar.png" width="22" height="22"> Follower2</a></li>
-          <li><a href="#"><img src="images/avatar.png" width="22" height="22"> Follower3</a></li>
+          <li><a href="${pageContext.request.contextPath}/user/profile/lilymarshall240"><img src="images/avatar.png" width="22" height="22"> Follower1</a></li>
+          <li><a href="${pageContext.request.contextPath}/user/profile/DannyRand9009"><img src="images/avatar.png" width="22" height="22"> Follower2</a></li>
+          <li><a href="${pageContext.request.contextPath}/user/profile/daredevil"><img src="images/avatar.png" width="22" height="22"> Follower3</a></li>
         </ul>
       </section>
 
