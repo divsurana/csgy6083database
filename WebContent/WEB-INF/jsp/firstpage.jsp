@@ -1,5 +1,9 @@
+<%@ page session="false"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<html>
+
+
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -42,12 +46,11 @@
 
                     <div class="login-page">
                       <div class="form">
-                        <form class="login-form" action="dashboard.jsp">
+                        <form method="POST" class="login-form" action="#" th:action="@{/signup}" th:object="${user}">
                           <input type="text" placeholder="username" style="font-size:18pt;width: 150px;height:30px;"/>
                           <input type="password" placeholder="password" style="font-size:18pt;width: 150px;height:30px;"/>
-
                           <input style="font-size:18pt;width: 150px;height:40px;" type="submit" value="Submit"/>
-
+                        
                           <h4>New User? Click <a href="#article2">here</a> to Sign Up</h4>
                         </form>
                       </div>
@@ -57,14 +60,14 @@
 				<!-- Article 1 end -->
                 <article id="article2">
                 <div id="register" class="animate form">
-                            <form  action="dashboard.jsp" autocomplete="on">
+                            <form:form action="signup" autocomplete="on" method="POST" modelAttribute="user">
                                 <h3> New User? SIGN UP HERE </h3>
                                 <p>
-                                    <input style="font-size:18pt;" id="fnamesignup" name="fnamesignup" required="required" type="text" placeholder="First name" />
-                                    <input style="font-size:18pt;" id="lnamesignup" name="lnamesignup" required="required" type="text" placeholder="Last name" />
-                                    <input style="font-size:18pt;" id="hometownsignup" name="hometownsignup" required="required" type="text" placeholder="Hometown" />
+                                    <form:input style="font-size:18pt;" id="fnamesignup" path="fname" name="fnamesignup" required="required" type="text" placeholder="First name" />
+                                    <form:input style="font-size:18pt;" id="lnamesignup" path="lname" name="lnamesignup" required="required" type="text" placeholder="Last name" />
+                                    <form:input style="font-size:18pt;" id="hometownsignup" path="hometown" name="hometownsignup" required="required" type="text" placeholder="Hometown" />
                                 </p>
-                                <p><select style="font-size:18pt;">
+                                <p><form:select style="font-size:18pt;" path="state">
                                     <option value="States">State</option>
                                     <option value="AL">Alabama</option>
                                     <option value="AK">Alaska</option>
@@ -117,29 +120,29 @@
                                     <option value="WV">West Virginia</option>
                                     <option value="WI">Wisconsin</option>
                                     <option value="WY">Wyoming</option>
-                                    </select>
-                                    <input style="font-size:18pt;" id="citysignup" name="citysignup" required="required" type="text" placeholder="City" />
-                                    <input style="font-size:18pt;" id="zipsignup" name="zipsignup" required="required" type="text" placeholder="Zip" />
+                                    </form:select>
+                                    <form:input style="font-size:18pt;" id="citysignup" name="citysignup" path="city" required="required" type="text" placeholder="City" />
+                                    <form:input style="font-size:18pt;" id="zipsignup" name="zipsignup" path="zipcode" required="required" type="text" placeholder="Zip" />
                                 </p>
                                 <p>
-                                    <label style="font-size:18pt;" for="interestsignup" class="interests" data-icon="u">Interests</label>
-                                    <input style="font-size:18pt;" id="interestsignup" name="interestsignup" required="required" type="text" placeholder="Ex: Jazz, Technology, etc" />
+                                    <form:label style="font-size:18pt;" path="interests" for="interestsignup" class="interests" data-icon="u">Interests</form:label>
+                                    <form:input style="font-size:18pt;" path="interests" id="interestsignup" name="interestsignup" required="required" type="text" placeholder="Ex: Jazz, Technology, etc" />
                                 </p>
                                 <p>
-                                    <label style="font-size:18pt;" for="cardnumbersignup" class="cardnumber" data-icon="u">Cardnumber</label>
-                                    <input style="font-size:18pt;" id="cardnumbersignup" name="cardnumbersignup" required="required" type="text" placeholder="Credit Card Number" />
+                                    <form:label style="font-size:18pt;" for="cardnumbersignup" path="cardnumber" class="cardnumber" data-icon="u">Cardnumber</form:label>
+                                    <form:input style="font-size:18pt;" id="cardnumbersignup" path="cardnumber" name="cardnumbersignup" required="required" type="text" placeholder="Credit Card Number" />
                                 </p>
                                 <p>
-                                    <label style="font-size:18pt;" for="usernamesignup" class="uname" data-icon="u">Your username</label>
-                                    <input style="font-size:18pt;" id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
+                                    <form:label style="font-size:18pt;" for="usernamesignup" path="username" class="uname" data-icon="u">Your username</form:label>
+                                    <form:input style="font-size:18pt;" id="usernamesignup" path="username" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
                                 </p>
                                 <p>
-                                    <label style="font-size:18pt;" for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
-                                    <input style="font-size:18pt;" id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                    <form:label style="font-size:18pt;" for="passwordsignup" path="password" class="youpasswd" data-icon="p">Your password </form:label>
+                                    <form:input style="font-size:18pt;" id="passwordsignup" path="password" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
                                 <p>
-                                    <label style="font-size:18pt;" for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
-                                    <input style="font-size:18pt;" id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                    <form:label style="font-size:18pt;" for="passwordsignup_confirm" path="password" class="youpasswd" data-icon="p">Please confirm your password </form:label>
+                                    <form:input style="font-size:18pt;" id="passwordsignup_confirm" path="password" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
                                 <p class="signin button">
                                     <input style="font-size:18pt;width: 150px;height:30px;" type="submit" value="Sign up"/>
@@ -148,7 +151,7 @@
                                     Already a member ?
                                     <a href="#article1" class="to_register"> Log in </a>
                                 </h4>
-                            </form>
+                            </form:form>
                         </div>
                       </article>
 
