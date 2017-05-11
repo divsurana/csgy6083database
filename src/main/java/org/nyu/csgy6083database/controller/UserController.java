@@ -67,7 +67,7 @@ public class UserController {
 			message = "firstpage";
 		} else if (userService.findByLogin(user.getUsername(), user.getPassword())) {
 			model.addAttribute("message", "Welcome back.");
-			message = "redirect:/user/dashboard";
+			message = "redirect:/user/" + user.getUsername();
 		} else {
 			model.addAttribute("message", "Login failed. Username or Password incorrect.");
 			message = "firstpage";
