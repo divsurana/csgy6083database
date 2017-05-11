@@ -99,9 +99,7 @@
                     <li>
                         <a href="${pageContext.request.contextPath}/comments/own">Your Comments</a>
                     </li>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/pledge/mypledges"">Your Pledges</a>
-                    </li>
+                  
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -189,7 +187,7 @@
                                             <tr>
                                                 <td>3319</td>
                                                 <td>10/21/2013</td>
-                                                <td>Blah blah blah</td>
+                                                <td>Hi, we are a group of 4 people who are conducting an experiment for research in botany. Please help us out for lab funding. </td>
                                                 <td>$943.45</td>
                                             </tr>
                                         </tbody>
