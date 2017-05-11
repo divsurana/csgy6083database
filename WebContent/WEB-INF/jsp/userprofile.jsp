@@ -10,17 +10,23 @@
   <link rel="stylesheet" type="text/css" media="all" href="css/stylesup.css">
   <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
 </head-->
-
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@page import="org.nyu.csgy6083database.model.Project"%>
+<%@page import="java.util.List"%>
+<%@page import="javax.security.auth.message.callback.PrivateKeyCallback.Request"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page session="true" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" media="all" href="css/stylesup.css">
+  <link rel="stylesheet" type="text/css" media="all" href="${pageContext.request.contextPath}/resources/css/stylesup.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
 </head>
 
 
@@ -201,7 +207,7 @@ tr:nth-child(even) {
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Dashboard</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">John Smith <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">${user.username} <span class="caret"></span></a>
         <ul class="dropdown-menu">
            <li>
                             <a href="userprofile.html"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -222,8 +228,8 @@ tr:nth-child(even) {
 <body>
   <div id="w">
     <div id="content" class="clearfix">
-      <div id="userphoto"><img src="images/avatar.png" alt="default avatar"></div>
-      <h1>John Smith</h1>
+      <div id="userphoto"><img src="${pageContext.request.contextPath}/resources/images/avatar.png" alt="default avatar"></div>
+      <h1>${user.username}</h1>
 
       <nav id="profiletabs">
         <ul class="clearfix">
@@ -235,7 +241,7 @@ tr:nth-child(even) {
       </nav>
 
       <section id="Info">
-        <p>Name: John Smith</p>
+        <p>Name: ${user.username}</p>
 
         <p>Hometown: Stamford</p>
 
@@ -250,7 +256,7 @@ tr:nth-child(even) {
         <p class="activity">@12:30PM - Posted a project</p>
       </section>
 
-      <section id="Followers" class="hidden">
+      <section id="Followers" class="hidden" action="">
         <p>Followers:</p>
 
         <ul id="friendslist" class="clearfix">

@@ -188,14 +188,14 @@ fieldset {
 <body>
 
 <div class="container">
-  <form id="contact" action="" method="post">
+  <form:form id="contact" action="project/save" method="post">
     <h3>Post your own project!</h3>
     <h4>Please fill in all the details</h4>
     <fieldset>
-      <input placeholder="Your username" type="text" tabindex="1" required autofocus>
+      <form:input placeholder="Your username" type="text" path="owner" tabindex="1" required autofocus>
     </fieldset>
     <fieldset>
-    <select name="category" id="category" style="font-size:15pt">
+    <form:select name="category" path="pcategory" id="category" style="font-size:15pt" action: >
       <option value="cat0">Project category</option>
       <option value="cat1">Jazz</option>
       <option value="cat2">Pop</option>
@@ -208,16 +208,16 @@ fieldset {
     </select>
     </fieldset>
     <fieldset>
-      <input placeholder="Project description" type="email" tabindex="2" required>
+      <form:input placeholder="Project description" path="pdesc" type="email" name="pdesc" tabindex="2" required>
     </fieldset>
     <fieldset>
-      <input placeholder="Minimum funding required" type="tel" tabindex="3" required>
+      <form:input placeholder="Minimum funding required" path="minfund" type="tel" tabindex="3" required>
     </fieldset>
     <fieldset>
-      <input placeholder="Maximum funding" type="url" tabindex="4" required>
+      <form:input placeholder="Maximum funding" path="maxfund" type="url" tabindex="4" required>
     </fieldset>
     <fieldset>
-      <input placeholder="End of Campaign date" type="url" tabindex="4" required>
+      <form:input placeholder="End of Campaign date" path="enddate" type="url" tabindex="4" required>
     </fieldset>
     <!--fieldset>
       <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
@@ -225,5 +225,5 @@ fieldset {
     <fieldset>
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
     </fieldset>
-
+</form:form>
 </div>

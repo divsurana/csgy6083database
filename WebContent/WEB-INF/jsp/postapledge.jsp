@@ -197,7 +197,7 @@ fieldset {
 <body>
 
 <div class="container">
-  <form:form id="contact" action="${pageContext.request.contextPath}/pledge/save"" method="post">
+  <form:form id="contact" action="pledge/save"" method="post">
     <h3>Help someone by posting a pledge today!</h3>
     <h4>Please fill in all the details</h4>
     <fieldset>
@@ -212,5 +212,5 @@ fieldset {
     <fieldset>
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
     </fieldset>
-</form:form>>
+</form:form>
 </div>
