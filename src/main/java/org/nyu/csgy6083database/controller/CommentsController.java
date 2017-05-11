@@ -5,9 +5,9 @@ package org.nyu.csgy6083database.controller;
 
 import javax.validation.Valid;
 
-import org.nyu.csgy6083database.model.Pledge;
+import org.nyu.csgy6083database.model.Comments;
 import org.nyu.csgy6083database.model.User;
-import org.nyu.csgy6083database.service.PledgeService;
+import org.nyu.csgy6083database.service.CommentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -23,23 +23,23 @@ import org.springframework.web.bind.annotation.SessionAttributes;
  *
  */
 @Controller
-@RequestMapping("/pledge")
+@RequestMapping("/comments")
 @SessionAttributes("user")
-public class PledgeController {
+public class CommentsController {
 
 	@Autowired
-	private PledgeService pledgeService;
+	private CommentsService commentsService;
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String save(@Valid @ModelAttribute("user") User user, @Param("pledge") Pledge pledge, BindingResult result,
-			Model model) {
+	public String save(@Valid @ModelAttribute("user") User user, @Param("comments") Comments comments,
+			BindingResult result, Model model) {
 		String message = "";
 		if (result.hasErrors()) {
 
 		} else {
-			pledgeService.save(pledge);
+			commentsService.save(comments);
 			model.addAttribute("message", "Pledged successfully.");
-			message = "redirect:/project/viewproject/" + pledge.getProject().getProjectid();
+			message = "redirect:/project/viewproject/" + comments.getProject().getProjectid();
 		}
 
 		return message;

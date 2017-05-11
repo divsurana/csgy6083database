@@ -34,7 +34,7 @@ public class Comments implements Serializable {
 	@Id
 	@ManyToOne
 	@JoinColumn(name = "projectid", columnDefinition = "char(32)")
-	private Project projectid;
+	private Project project;
 
 	@Column(columnDefinition = "text")
 	private String content;
@@ -53,12 +53,19 @@ public class Comments implements Serializable {
 		this.user = user;
 	}
 
-	public Project getProjectid() {
-		return projectid;
+	/**
+	 * @return the project
+	 */
+	public Project getProject() {
+		return project;
 	}
 
-	public void setProjectid(Project projectid) {
-		this.projectid = projectid;
+	/**
+	 * @param project
+	 *            the project to set
+	 */
+	public void setProject(Project project) {
+		this.project = project;
 	}
 
 	public String getContent() {
