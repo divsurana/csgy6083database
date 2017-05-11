@@ -45,14 +45,13 @@ public class ProjectController {
 		return message;
 	}
 
-	@RequestMapping(value = "/projectsbyowner", method = RequestMethod.GET)
+	@RequestMapping(value = "/projectsbyowner", method = RequestMethod.POST)
 	public String getProjectsByOwner(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
 		String message = "";
 
 		if (result.hasErrors()) {
 		} else {
 			model.addAttribute("projects", projectService.findProjectByOwner(user));
-			System.out.println(model.containsAttribute("projects"));
 			message = "viewmanyprojects";
 		}
 
@@ -66,7 +65,7 @@ public class ProjectController {
 		if (result.hasErrors()) {
 
 		} else {
-			//model.addAttribute("projects", projectService.findRecommendedProjects(user));
+			model.addAttribute("projects", projectService.findRecommendedProjects(user));
 			message = "viewmanyprojects";
 		}
 
