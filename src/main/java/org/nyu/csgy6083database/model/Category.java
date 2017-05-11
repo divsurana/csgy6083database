@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 /**
  * @author divyeshsurana
  *
@@ -28,7 +30,8 @@ public class Category implements Serializable {
 
 	@Id
 	@Column(columnDefinition = "char(32)")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String categoryid;
 
 	@Column(columnDefinition = "text")
