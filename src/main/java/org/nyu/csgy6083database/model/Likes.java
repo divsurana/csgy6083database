@@ -8,9 +8,12 @@ import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.nyu.csgy6083database.model.Likes.LikesId;
 
 /**
  * @author divyeshsurana
@@ -18,6 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "likes")
+@IdClass(LikesId.class)
 public class Likes implements Serializable {
 
 	/**
@@ -36,6 +40,25 @@ public class Likes implements Serializable {
 	private Project project;
 
 	private Timestamp liketime;
+
+	public class LikesId implements Serializable {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 3768888745901169033L;
+		private User user;
+		private Project project;
+
+		public LikesId() {
+		}
+
+		public LikesId(User user, Project project) {
+			this.user = user;
+			this.project = project;
+		}
+		// equals, hashCode
+	}
 
 	public User getUser() {
 		return user;
