@@ -57,6 +57,13 @@ public class Project implements Serializable {
 		public String getPStatus() {
 			return PStatus;
 		}
+
+		public static PStatus getEnum(String value) {
+			for (PStatus status : values())
+				if (status.getPStatus().equalsIgnoreCase(value))
+					return status;
+			throw new IllegalArgumentException();
+		}
 	}
 
 	@Id
