@@ -36,6 +36,12 @@ public class PledgeController {
 	private ProjectService projectService;
 	private static final Logger logger = Logger.getLogger(UserController.class);
 
+	@RequestMapping(value = "/newpledge", method = RequestMethod.GET)
+	public String newPledge(@Valid @ModelAttribute User user, Model model) {
+		logger.info("User: " + user.getUsername() + " posting a new pledge.");
+		return "postapledge";
+	}
+
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid @ModelAttribute("user") User user, @Param("pledge") Pledge pledge, BindingResult result,
 			Model model) {
