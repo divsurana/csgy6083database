@@ -31,4 +31,10 @@ public interface ProjectService extends Service<Project> {
 	 */
 	public List<Project> findRecommendedProjects(User user);
 
+	/**
+	 * @param projectId
+	 * @return
+	 */
+	public Project findProject(String projectId);
+
 }

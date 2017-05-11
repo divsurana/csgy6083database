@@ -21,10 +21,10 @@ public interface PledgeRepository extends JpaRepository<Pledge, String> {
 	@Query(value = "SELECT FROM PLEDGE WHERE projectid = :projectid", nativeQuery = true)
 	public List<Pledge> findPledgeByProject(@Param("projectid") String projectId);
 
-	@Query("select p from pledge p where p.sponsor = :user")
+	@Query("select p from Pledge p where p.sponsor = :user")
 	public List<Pledge> findPledgeByUser(@Param("user") User user);
 
-	@Query("select p from pledge p where p.isbilled = true and p.sponsor = :user")
+	@Query("select p from Pledge p where p.isbilled = true and p.sponsor = :user")
 	public List<Pledge> findBilledPledgesOfUser(@Param("user") User user);
 
 }

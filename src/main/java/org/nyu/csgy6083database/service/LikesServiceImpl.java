@@ -4,11 +4,13 @@
 package org.nyu.csgy6083database.service;
 
 import org.nyu.csgy6083database.model.Likes;
+import org.springframework.stereotype.Service;
 
 /**
  * @author divyeshsurana
  *
  */
+@Service("likesService")
 public class LikesServiceImpl implements LikesService {
 
 	/*

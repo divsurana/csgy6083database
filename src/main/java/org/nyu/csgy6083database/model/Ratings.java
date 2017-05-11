@@ -9,9 +9,12 @@ import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.nyu.csgy6083database.model.Ratings.RatingsId;
 
 /**
  * @author divyeshsurana
@@ -19,6 +22,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "ratings")
+@IdClass(RatingsId.class)
 public class Ratings implements Serializable {
 
 	/**
@@ -42,6 +46,24 @@ public class Ratings implements Serializable {
 	private int rating;
 
 	private Timestamp ratingtime;
+
+	public class RatingsId implements Serializable {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 134203303751109629L;
+		private User user;
+		private Project project;
+
+		public RatingsId() {
+		}
+
+		public RatingsId(User user, Project project) {
+			this.user = user;
+			this.project = project;
+		}
+		// equals, hashCode
+	}
 
 	public User getUser() {
 		return user;

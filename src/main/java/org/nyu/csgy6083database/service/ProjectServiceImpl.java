@@ -47,7 +47,8 @@ public class ProjectServiceImpl implements ProjectService {
 	@Override
 	@Transactional(readOnly = true)
 	public List<Project> findTopProjects() {
-		return projectRepository.findTopProjects();
+		// return projectRepository.findTopProjects();
+		return null;
 	}
 
 	@Override
@@ -63,5 +64,11 @@ public class ProjectServiceImpl implements ProjectService {
 		}
 
 		return projectRepository.findProjectsByCategories(relevantCategories);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Project findProject(String projectId) {
+		return projectRepository.findOne(projectId);
 	}
 }

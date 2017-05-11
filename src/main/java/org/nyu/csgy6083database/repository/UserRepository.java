@@ -21,6 +21,6 @@ public interface UserRepository extends JpaRepository<User, String> {
 
 	// @Query("select u from User u where u.fname like :name or u.lname like
 	// :name")
-	@Query(value = "select from user where u.fname like :name or u.lname like :name", nativeQuery = true)
+	@Query(value = "select from user u where u.fname like :name or u.lname like :name", nativeQuery = true)
 	List<User> findByName(@Param("name") String name);
 }
