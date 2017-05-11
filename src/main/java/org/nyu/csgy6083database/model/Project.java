@@ -9,8 +9,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -33,38 +31,29 @@ public class Project implements Serializable {
 		 */
 	private static final long serialVersionUID = -2366993613648731747L;
 
-	public enum PStatus {
-		NOTFUNDED("Not funded"),
-
-		FUNDEDANDPROGRESS("Funded and in progress"),
-
-		FUNDEDANDCOMPLETED("Funded and completed");
-
-		private String PStatus;
-
-		private PStatus() {
-
-		}
-
-		private PStatus(String pStatus) {
-			this.PStatus = pStatus;
-		}
-
-		public void setPSTatus(String pStatus) {
-			this.PStatus = pStatus;
-		}
-
-		public String getPStatus() {
-			return PStatus;
-		}
-
-		public static PStatus getEnum(String value) {
-			for (PStatus status : values())
-				if (status.getPStatus().equalsIgnoreCase(value))
-					return status;
-			throw new IllegalArgumentException();
-		}
-	}
+	/*
+	 * public enum PStatus { NOTFUNDED("Not funded"),
+	 * 
+	 * FUNDEDANDPROGRESS("Funded and in progress"),
+	 * 
+	 * FUNDEDANDCOMPLETED("Funded and completed");
+	 * 
+	 * private String PStatus;
+	 * 
+	 * private PStatus() {
+	 * 
+	 * }
+	 * 
+	 * private PStatus(String pStatus) { this.PStatus = pStatus; }
+	 * 
+	 * public void setPSTatus(String pStatus) { this.PStatus = pStatus; }
+	 * 
+	 * public String getPStatus() { return PStatus; }
+	 * 
+	 * public static PStatus getEnum(String value) { for (PStatus status :
+	 * values()) if (status.getPStatus().equalsIgnoreCase(value)) return status;
+	 * throw new IllegalArgumentException(); } }
+	 */
 
 	@Id
 	@Column(columnDefinition = "char(32)")
@@ -86,8 +75,8 @@ public class Project implements Serializable {
 	@JoinColumn(name = "pcategory")
 	private Category pcategory;
 
-	@Enumerated(EnumType.STRING)
-	private PStatus pstatus;
+	// @Enumerated(EnumType.STRING)
+	private String pstatus;
 
 	private int minfund;
 
@@ -144,11 +133,18 @@ public class Project implements Serializable {
 		this.pcategory = pcategory;
 	}
 
-	public PStatus getPstatus() {
+	/**
+	 * @return the pstatus
+	 */
+	public String getPstatus() {
 		return pstatus;
 	}
 
-	public void setPstatus(PStatus pstatus) {
+	/**
+	 * @param pstatus
+	 *            the pstatus to set
+	 */
+	public void setPstatus(String pstatus) {
 		this.pstatus = pstatus;
 	}
 

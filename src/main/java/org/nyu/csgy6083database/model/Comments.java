@@ -9,9 +9,12 @@ import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.nyu.csgy6083database.model.Comments.CommentsId;
 
 /**
  * @author divyeshsurana
@@ -19,6 +22,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "comments")
+@IdClass(CommentsId.class)
 public class Comments implements Serializable {
 
 	/**
@@ -44,6 +48,24 @@ public class Comments implements Serializable {
 
 	@Id
 	private Timestamp commenttime;
+
+	public class CommentsId implements Serializable {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 134203303751109629L;
+		private User user;
+		private Project project;
+
+		public CommentsId() {
+		}
+
+		public CommentsId(User user, Project project) {
+			this.user = user;
+			this.project = project;
+		}
+		// equals, hashCode
+	}
 
 	public User getUser() {
 		return user;
