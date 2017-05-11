@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -52,6 +53,20 @@ public class CommentsController {
 		} else {
 
 			model.addAttribute("comments", commentsService.findCommentsByUser(user));
+			message = "yourcomments";
+		}
+
+		return message;
+	}
+
+	@RequestMapping(value = "/{projectid}", method = RequestMethod.GET)
+	public String viewProjectComments(@Valid @ModelAttribute("user") User user, @PathVariable String projectid,
+			BindingResult result, Model model) {
+		String message = "";
+		if (result.hasErrors()) {
+		} else {
+
+			model.addAttribute("comments", commentsService.findCommentsByProject(projectid));
 			message = "yourcomments";
 		}
 

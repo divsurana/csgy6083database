@@ -36,4 +36,8 @@ public class CommentsServiceImpl implements CommentsService {
 		return commentsRepository.findCommentsByUser(user);
 	}
 
+	@Override
+	public List<Comments> findCommentsByProject(String projectid) {
+		return commentsRepository.findCommentsByProject(projectid);
+	}
 }

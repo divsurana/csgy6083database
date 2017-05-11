@@ -49,7 +49,7 @@ public class Comments implements Serializable {
 	@Id
 	private Timestamp commenttime;
 
-	public class CommentsId implements Serializable {
+	public static class CommentsId implements Serializable {
 		/**
 		 * 
 		 */

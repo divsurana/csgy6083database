@@ -18,6 +18,12 @@ public interface CommentsService extends Service<Comments> {
 	 * @param user
 	 * @return
 	 */
-	List<Comments> findCommentsByUser(User user);
+	public List<Comments> findCommentsByUser(User user);
+
+	/**
+	 * @param projectid
+	 * @return
+	 */
+	public List<Comments> findCommentsByProject(String projectid);
 
 }

@@ -19,4 +19,7 @@ public interface CommentsRepository extends JpaRepository<Comments, String> {
 
 	@Query("select c from Comments c where c.user = :user")
 	public List<Comments> findCommentsByUser(@Param("user") User user);
+
+	@Query(value = "select from comments c where c.projectid = :projectid", nativeQuery = true)
+	public List<Comments> findCommentsByProject(@Param("projectid") String projectid);
 }
