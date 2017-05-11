@@ -301,7 +301,7 @@ Comment:<br />
 <form:form method="POST" action="save">
   <textarea name='comment' id='comment'></textarea><br />
 
-  <form:input type="text" path="content" name="comment">
+  <form:input type="text" path="content" name="comment"/>
 
     <input type='submit' value='Submit' />
 </form:form>

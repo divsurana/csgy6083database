@@ -201,10 +201,10 @@ fieldset {
     <h3>Help someone by posting a pledge today!</h3>
     <h4>Please fill in all the details</h4>
     <fieldset>
-      <form:input placeholder="Your username" path="sponsor" type="text" tabindex="1" required autofocus>
+      <form:input placeholder="Your username" path="sponsor" type="text" tabindex="1" required autofocus/>
     </fieldset>
     <fieldset>
-      <form:input placeholder="Enter the amount you wish to pledge" path="amount" type="tel" tabindex="3" required>
+      <form:input placeholder="Enter the amount you wish to pledge" path="amount" type="tel" tabindex="3" required/>
     </fieldset>
     <!--fieldset>
       <textarea placeholder="Type your message here...." tabindex="5" required></textarea>

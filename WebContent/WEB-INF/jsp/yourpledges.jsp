@@ -244,6 +244,7 @@ body {
      <span class="cell" data-label="Interior">${pl.pledgetime}</span>
      <span class="cell" data-label="Engine">${pl.cardnumber}</span>
     <span class="cell" data-label="Trans">${pl.isbilled}</span>
+    </c:forEach>
   </div>
   
   </div>
