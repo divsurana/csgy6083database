@@ -1,4 +1,5 @@
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <style>
 #button{
   background-color: #4CAF50; /* Green */
@@ -253,6 +254,7 @@ body {
 <div class="caption">Projects</div>
 <div id="table">
 	<div class="header-row row">
+	<span class="cell primary">Choose to comment</span>
     <span class="cell primary">Project name</span>
     <span class="cell">Project description</span>
 		<span class="cell">Category</span>
@@ -294,3 +296,12 @@ body {
   </div>
 
 </div>
+
+Comment:<br />
+<form:form method="POST" action="save">
+  <textarea name='comment' id='comment'></textarea><br />
+
+  <form:input type="text" path="content" name="comment">
+
+    <input type='submit' value='Submit' />
+</form:form>

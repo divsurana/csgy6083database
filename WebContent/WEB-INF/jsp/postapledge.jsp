@@ -1,4 +1,5 @@
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <style>
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 * {
@@ -168,7 +169,7 @@ fieldset {
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Dashboard</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">John Smith <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">${user.username} <span class="caret"></span></a>
         <ul class="dropdown-menu">
            <li>
                             <a href="userprofile.html"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -190,14 +191,14 @@ fieldset {
 <body>
 
 <div class="container">
-  <form id="contact" action="" method="post">
+  <form:form id="contact" action="${pageContext.request.contextPath}/pledge/save"" method="post">
     <h3>Help someone by posting a pledge today!</h3>
     <h4>Please fill in all the details</h4>
     <fieldset>
-      <input placeholder="Your username" type="text" tabindex="1" required autofocus>
+      <form:input placeholder="Your username" path="sponsor" type="text" tabindex="1" required autofocus>
     </fieldset>
     <fieldset>
-      <input placeholder="Enter the amount you wish to pledge" type="tel" tabindex="3" required>
+      <form:input placeholder="Enter the amount you wish to pledge" path="amount" type="tel" tabindex="3" required>
     </fieldset>
     <!--fieldset>
       <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
@@ -205,5 +206,5 @@ fieldset {
     <fieldset>
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
     </fieldset>
-
+</form:form>>
 </div>

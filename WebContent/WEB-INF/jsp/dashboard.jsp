@@ -59,8 +59,9 @@
                   </form>
                 </li>
                 <li>
-                  <button style="height: 50px" class="button">Post a new project!</button>
-
+                <form action="${pageContext.request.contextPath}/project/save">
+                  <input style="height: 50px" type="submit" value="Post a new project!"/>
+				</form>
                 </li>
                     <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>${username} <b class="caret"></b></a>
@@ -73,7 +74,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="${pageContext.request.contextPath}/user/signup"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
 
@@ -91,10 +92,10 @@
                         <a href="${pageContext.request.contextPath}/project/projectsbyowner">Your Projects</a>
                     </li>
                     <li>
-                        <a href="yourcomments.jsp">Your comments</a>
+                        <a href="${pageContext.request.contextPath}/comments/own">Your Comments</a>
                     </li>
                     <li>
-                        <a href="yourpledges.jsp">Your Pledges</a>
+                        <a href="${pageContext.request.contextPath}/pledge/mypledges"">Your Pledges</a>
                     </li>
                     <li>
                         <a href="yourlikes.jsp">Things you liked</a>

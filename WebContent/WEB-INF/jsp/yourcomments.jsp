@@ -227,33 +227,23 @@ body {
   </div>
 </nav>
 
-<div class="caption">Projects</div>
+<div class="caption">Comments</div>
 <div id="table">
 	<div class="header-row row">
-    <span class="cell primary">Project name</span>
-    <span class="cell">Project description</span>
-		<span class="cell">Category</span>
-     <span class="cell">Minimum Funding</span>
-    <span class="cell">Maximum Funding</span>
-    <span class="cell">End of campaign date</span>
+    <span class="cell primary">Username</span>
+    <span class="cell">Project</span>
+		<span class="cell">Content</span>
+     <span class="cell">Media</span>
+    <span class="cell">Comment Time</span>
   </div>
-  <%@ page import = "java.util.Map" %>
-<%  Map<String, String[]> parameters = request.getParameterMap();
-System.out.println("Here");
-for(String parameter : parameters.keySet()) {
-    System.out.println(parameter);
-    
-}
-%>
-  <c:forEach items="${projects}" var="p">
+ 
+  <c:forEach items="${comments}" var="comm">
   <div class="row">
-  
-<span class="cell primary" data-label="Project name"><form:form method="POST" action="/viewproject/${p.projectid}"><input type="submit" path="projectid" value="${p.projectname}" name="${p.projectid}"></></form:form></span>
-    <span class="cell" data-label="Project Description">${p.pdesc}</span>
-     <span class="cell" data-label="Category"><form:form method="POST" action="viewproject"><input type="submit" path="categoryid" value="${p.pcategory.categoryname}" name="${p.pcategory.categoryid}"></></form:form></span>
-     <span class="cell" data-label="Minimum Funding">${p.minfund}</span>
-     <span class="cell" data-label="Maximum Funding">${p.maxfund}</span>
-		 <span class="cell" data-label="End of campaign date">${p.enddate}</span>
+<span class="cell primary" data-label="Project name">${comm.user.username}</span>
+    <span class="cell" data-label="Project Description">${comm.project.projectname}</span>
+     <span class="cell" data-label="Category">${comm.content}</span>
+     <span class="cell" data-label="Minimum Funding">${comm.media}</span>
+		 <span class="cell" data-label="End of campaign date">${comm.commenttime}</span>
   </div>
    </c:forEach>
 </div>
