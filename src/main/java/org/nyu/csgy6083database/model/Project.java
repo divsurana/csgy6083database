@@ -5,15 +5,19 @@ package org.nyu.csgy6083database.model;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * @author divyeshsurana
@@ -56,6 +60,7 @@ public class Project implements Serializable {
 
 	@Id
 	@Column(columnDefinition = "char(32)")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String projectid;
 
 	@Column(columnDefinition = "text")
@@ -86,6 +91,9 @@ public class Project implements Serializable {
 	private Timestamp actualenddate;
 
 	private Timestamp completiondate;
+
+	@Transient
+	private List<Likes> likes;
 
 	public String getProjectid() {
 		return projectid;
@@ -181,6 +189,21 @@ public class Project implements Serializable {
 
 	public void setCompletiondate(Timestamp completiondate) {
 		this.completiondate = completiondate;
+	}
+
+	/**
+	 * @return the likes
+	 */
+	public List<Likes> getLikes() {
+		return likes;
+	}
+
+	/**
+	 * @param likes
+	 *            the likes to set
+	 */
+	public void setLikes(List<Likes> likes) {
+		this.likes = likes;
 	}
 
 }

@@ -4,6 +4,8 @@
 package org.nyu.csgy6083database.service;
 
 import org.nyu.csgy6083database.model.Ratings;
+import org.nyu.csgy6083database.repository.RatingsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author divyeshsurana
@@ -11,13 +13,17 @@ import org.nyu.csgy6083database.model.Ratings;
  */
 public class RatingsServiceImpl implements RatingsService {
 
-	/* (non-Javadoc)
+	@Autowired
+	private RatingsRepository ratingsRepository;
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.nyu.csgy6083database.service.Service#save(java.lang.Object)
 	 */
 	@Override
-	public Ratings save(Ratings entity) {
-		// TODO Auto-generated method stub
-		return null;
+	public Ratings save(Ratings ratings) {
+		return ratingsRepository.save(ratings);
 	}
 
 }

@@ -8,6 +8,8 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -26,6 +28,7 @@ public class Category implements Serializable {
 
 	@Id
 	@Column(columnDefinition = "char(32)")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String categoryid;
 
 	@Column(columnDefinition = "text")

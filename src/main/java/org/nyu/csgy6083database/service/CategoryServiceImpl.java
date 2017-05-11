@@ -55,4 +55,10 @@ public class CategoryServiceImpl implements CategoryService {
 		return categoryRepository.find(name);
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public List<Category> findAll() {
+		return categoryRepository.findAll();
+	}
+
 }

@@ -17,4 +17,9 @@ public interface CategoryService extends Service<Category> {
 
 	public Category find(String name);
 
+	/**
+	 * @return
+	 */
+	public List<Category> findAll();
+
 }

@@ -27,4 +27,11 @@ public interface ProjectRepository extends JpaRepository<Project, String> {
 	// TODO: Get the query for top 5 projects with most likes.
 	@Query("select p from Project p where ")
 	public List<Project> findTopProjects();
+
+	/**
+	 * @param relevantCategories
+	 * @return
+	 */
+	@Query(value = "select from projects p where p.pcategory in (:categories)")
+	public List<Project> findProjectsByCategories(@Param("categories") List<String> relevantCategories);
 }

@@ -66,10 +66,22 @@ public class UserController {
 			message = "firstpage";
 		} else if (userService.findByLogin(user.getUsername(), user.getPassword())) {
 			model.addAttribute("message", "Welcome back.");
-			message = "dashboard";
+			message = "redirect:/user/dashboard";
 		} else {
 			model.addAttribute("message", "Login failed. Username or Password incorrect.");
 			message = "firstpage";
+		}
+
+		return message;
+	}
+
+	@RequestMapping(value = "/dashboard", method = RequestMethod.POST)
+	public String viewDashboard(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
+		String message = "";
+		if (result.hasErrors()) {
+
+		} else {
+			message = "dashboard";
 		}
 
 		return message;
