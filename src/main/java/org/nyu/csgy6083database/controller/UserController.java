@@ -82,7 +82,7 @@ public class UserController {
 		String message = "";
 		if (result.hasErrors()) {
 		} else if (user.getUsername().equals(username)) {
-			message = "dashboard";
+			message = "userprofile";
 		} else {
 			model.addAttribute("fetchUser", userService.findByUserName(username));
 			message = "userprofile";
