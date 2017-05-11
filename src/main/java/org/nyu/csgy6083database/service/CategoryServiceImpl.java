@@ -5,15 +5,18 @@ package org.nyu.csgy6083database.service;
 
 import java.util.List;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.nyu.csgy6083database.model.Category;
 import org.nyu.csgy6083database.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author divyeshsurana
  *
  */
+@Service("categoryService")
 public class CategoryServiceImpl implements CategoryService {
 
 	@Autowired

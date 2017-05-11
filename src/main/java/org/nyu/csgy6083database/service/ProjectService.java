@@ -20,15 +20,15 @@ public interface ProjectService extends Service<Project> {
 	 */
 	public List<Project> findProjectByOwner(User user);
 
-	/**
+/*	*//**
 	 * @return
-	 */
+	 *//*
 	public List<Project> findTopProjects();
 
-	/**
+	*//**
 	 * @param user
 	 * @return
-	 */
-	public List<Project> findRecommendedProjects(User user);
+	 *//*
+	public List<Project> findRecommendedProjects(User user);*/
 
 }

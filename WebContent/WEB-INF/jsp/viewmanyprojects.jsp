@@ -1,4 +1,9 @@
+<%@page import="org.nyu.csgy6083database.model.Project"%>
+<%@page import="java.util.List"%>
+<%@page import="javax.security.auth.message.callback.PrivateKeyCallback.Request"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page session="true" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <style>
 body {
 		background: #cacaca;
@@ -204,7 +209,7 @@ body {
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Dashboard</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">${username}<span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">${user.username}<span class="caret"></span></a>
         <ul class="dropdown-menu">
            <li>
                             <a href="userprofile.html"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -232,54 +237,23 @@ body {
     <span class="cell">Maximum Funding</span>
     <span class="cell">End of campaign date</span>
   </div>
+  <%@ page import = "java.util.Map" %>
+<%  Map<String, String[]> parameters = request.getParameterMap();
+System.out.println("Here");
+for(String parameter : parameters.keySet()) {
+    System.out.println(parameter);
+    
+}
+%>
+  <c:forEach items="${projects}" var="p">
   <div class="row">
 	<input type="radio" name="expand">
-    <span class="cell primary" data-label="Vehicle">2013 Subaru WRX</span>
-    <span class="cell" data-label="Exterior">World Rally Blue</span>
-     <span class="cell" data-label="Interior">Black</span>
-     <span class="cell" data-label="Engine">2.5L H4 Turbo</span>
-    <span class="cell" data-label="Trans">5 Speed</span>
-		<span class="cell" data-label="Trans">5 Speed</span>
+    <span class="cell primary" data-label="Project name">${p.projectname}</span>
+    <span class="cell" data-label="Project Description">${p.pdesc}</span>
+     <span class="cell" data-label="Category">${p.pcategory}</span>
+     <span class="cell" data-label="Minimum Funding">${p.minfund}</span>
+     <span class="cell" data-label="Maximum Funding">${p.maxfund}</span>
+		 <span class="cell" data-label="End of campaign date">${p.enddate}</span>
   </div>
-  <div class="row">
-	<input type="radio" name="expand">
-    <span class="cell primary" data-label="Vehicle">2013 Subaru WRX STI</span>
-    <span class="cell" data-label="Exterior">Crystal Black Silica</span>
-     <span class="cell" data-label="Interior">Black</span>
-     <span class="cell" data-label="Engine">2.5L H4 Turbo</span>
-     <span class="cell" data-label="Trans">6 Speed</span>
-		 <span class="cell" data-label="Trans">5 Speed</span>
-  </div>
-  <div class="row">
-	<input type="radio" name="expand">
-    <span class="cell primary" data-label="Vehicle">2013 Subaru BRZ</span>
-    <span class="cell" data-label="Exterior">Dark Grey Metallic</span>
-     <span class="cell" data-label="Interior">Black</span>
-     <span class="cell" data-label="Engine">2.0L H4</span>
-     <span class="cell" data-label="Trans">6 Speed</span>
-  </div>
-  <div class="row">
-	<input type="radio" name="expand">
-    <span class="cell primary" data-label="Vehicle">2013 Subaru Legacy</span>
-    <span class="cell" data-label="Exterior">Satin White Pearl</span>
-     <span class="cell" data-label="Interior">Black</span>
-     <span class="cell" data-label="Engine">2.5L H4</span>
-     <span class="cell" data-label="Trans">Auto</span>
-  </div>
-  <div class="row">
-	<input type="radio" name="expand">
-    <span class="cell primary" data-label="Vehicle">2013 Subaru Legacy</span>
-    <span class="cell" data-label="Exterior">Twilight Blue Metallic</span>
-     <span class="cell" data-label="Interior">Black</span>
-     <span class="cell" data-label="Engine">2.5L H4</span>
-     <span class="cell" data-label="Trans">Auto</span>
-  </div>
-  <div class="row">
-	<input type="radio" name="expand">
-    <span class="cell primary" data-label="Vehicle">2013 Subaru Forester</span>
-    <span class="cell" data-label="Exterior">Ice Silver Metallic</span>
-     <span class="cell" data-label="Interior">Black</span>
-     <span class="cell" data-label="Engine">2.5L H4 Turbo</span>
-     <span class="cell" data-label="Trans">Auto</span>
-  </div>
+  </c:forEach>
 </div>

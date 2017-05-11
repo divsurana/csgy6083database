@@ -44,7 +44,7 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectRepository.findProjectByOwner(user);
 	}
 
-	@Override
+	/*@Override
 	@Transactional(readOnly = true)
 	public List<Project> findTopProjects() {
 		return projectRepository.findTopProjects();
@@ -63,5 +63,5 @@ public class ProjectServiceImpl implements ProjectService {
 		}
 
 		return projectRepository.findProjectsByCategories(relevantCategories);
-	}
+	}*/
 }
