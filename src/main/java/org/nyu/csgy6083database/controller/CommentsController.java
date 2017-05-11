@@ -36,7 +36,7 @@ public class CommentsController {
 			BindingResult result, Model model) {
 		String message = "";
 		if (result.hasErrors()) {
-
+			message = "errorpage";
 		} else {
 			commentsService.save(comments);
 			model.addAttribute("message", "Pledged successfully.");
@@ -50,6 +50,7 @@ public class CommentsController {
 	public String viewOwnComments(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
 		String message = "";
 		if (result.hasErrors()) {
+			message = "errorpage";
 		} else {
 
 			model.addAttribute("comments", commentsService.findCommentsByUser(user));
@@ -64,6 +65,7 @@ public class CommentsController {
 			BindingResult result, Model model) {
 		String message = "";
 		if (result.hasErrors()) {
+			message = "errorpage";
 		} else {
 
 			model.addAttribute("comments", commentsService.findCommentsByProject(projectid));

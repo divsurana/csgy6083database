@@ -36,7 +36,7 @@ public class FollowersController {
 			BindingResult result, Model model) {
 		String message = "";
 		if (result.hasErrors()) {
-
+			message = "errorpage";
 		} else {
 			followersService.save(followers);
 			model.addAttribute("message", "User followed.");
@@ -51,7 +51,7 @@ public class FollowersController {
 			BindingResult result, Model model) {
 		String message = "";
 		if (result.hasErrors()) {
-
+			message = "errorpage";
 		} else {
 			model.addAttribute("followers", followersService.getFollowers(username));
 			// message = "redirect:/user/" +
@@ -66,7 +66,7 @@ public class FollowersController {
 			BindingResult result, Model model) {
 		String message = "";
 		if (result.hasErrors()) {
-
+			message = "errorpage";
 		} else {
 			model.addAttribute("followers", followersService.getFollowed(username));
 			// message = "redirect:/user/" +

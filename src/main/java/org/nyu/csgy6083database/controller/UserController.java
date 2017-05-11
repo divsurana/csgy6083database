@@ -42,6 +42,7 @@ public class UserController {
 
 		String message = "firstpage";
 		if (result.hasErrors()) {
+			message = "errorpage";
 		} else if (userService.isUserExists(user.getUsername())) {
 			model.addAttribute("message", "User Name exists. Try another username.");
 		} else {
@@ -81,6 +82,7 @@ public class UserController {
 			BindingResult result, Model model) {
 		String message = "";
 		if (result.hasErrors()) {
+			message = "errorpage";
 		} else if (user.getUsername().equals(username)) {
 			message = "userprofile";
 		} else {

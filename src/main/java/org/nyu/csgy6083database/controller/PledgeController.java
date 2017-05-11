@@ -39,7 +39,7 @@ public class PledgeController {
 			Model model) {
 		String message = "";
 		if (result.hasErrors()) {
-
+			message = "errorpage";
 		} else {
 			pledgeService.save(pledge);
 			model.addAttribute("message", "Pledged successfully.");
@@ -55,6 +55,7 @@ public class PledgeController {
 		String message = "";
 
 		if (result.hasErrors()) {
+			message = "errorpage";
 		} else {
 			if (isbilled)
 				model.addAttribute("pledges", pledgeService.findBilledPledgesOfUser(user));
@@ -72,6 +73,7 @@ public class PledgeController {
 		String message = "";
 
 		if (result.hasErrors()) {
+			message = "errorpage";
 		} else if (projectService.findProject(projectId).getOwner().equals(user)) {
 			model.addAttribute("pledges", pledgeService.findPledgeByProject(projectId));
 			message = "yourpledges";

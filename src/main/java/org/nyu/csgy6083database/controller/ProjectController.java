@@ -36,7 +36,7 @@ public class ProjectController {
 			BindingResult result, Model model) {
 		String message = "";
 		if (result.hasErrors()) {
-
+			message = "errorpage";
 		} else {
 			projectService.save(project);
 			model.addAttribute("message", "Project successfully created.");
@@ -51,6 +51,7 @@ public class ProjectController {
 		String message = "";
 
 		if (result.hasErrors()) {
+			message = "errorpage";
 		} else {
 			model.addAttribute("projects", projectService.findProjectByOwner(user));
 			message = "viewmanyprojects";
@@ -64,7 +65,7 @@ public class ProjectController {
 		String message = "";
 
 		if (result.hasErrors()) {
-
+			message = "errorpage";
 		} else {
 			model.addAttribute("projects", projectService.findRecommendedProjects(user));
 			message = "viewmanyprojects";
@@ -78,7 +79,7 @@ public class ProjectController {
 			BindingResult result, Model model) {
 		String message = "";
 		if (result.hasErrors()) {
-
+			message = "errorpage";
 		} else {
 			model.addAttribute("projects", projectService.findProjectsByCategory(categoryid));
 			message = "viewmanyprojects";
@@ -93,7 +94,7 @@ public class ProjectController {
 		String message = "";
 
 		if (result.hasErrors()) {
-
+			message = "errorpage";
 		} else {
 			model.addAttribute("project", projectService.findProject(projectId));
 			message = "viewoneproject";
