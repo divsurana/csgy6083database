@@ -5,6 +5,7 @@ package org.nyu.csgy6083database.controller;
 
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.nyu.csgy6083database.model.User;
 import org.nyu.csgy6083database.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +31,13 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	private static final Logger logger = Logger.getLogger(UserController.class);
+
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public String signup(Model model) {
 		User user = new User();
 		model.addAttribute("user", user);
+		logger.info("User: " + user.getUsername() + " signing up.");
 		return "firstpage";
 	}
 
@@ -45,9 +49,11 @@ public class UserController {
 			message = "errorpage";
 		} else if (userService.isUserExists(user.getUsername())) {
 			model.addAttribute("message", "User Name exists. Try another username.");
+			logger.info("User: " + user.getUsername() + " exists.");
 		} else {
 			userService.save(user);
 			model.addAttribute("message", "Saved User details. Please login.");
+			logger.info("User: " + user.getUsername() + " signed up.");
 		}
 
 		return message;
@@ -68,6 +74,7 @@ public class UserController {
 			message = "firstpage";
 		} else if (userService.findByLogin(user.getUsername(), user.getPassword())) {
 			model.addAttribute("message", "Welcome back.");
+			logger.info("User: " + user.getUsername() + " logged in.");
 			message = "redirect:/user/" + user.getUsername();
 		} else {
 			model.addAttribute("message", "Login failed. Username or Password incorrect.");
@@ -80,13 +87,27 @@ public class UserController {
 	@RequestMapping(value = "/{username}", method = RequestMethod.GET)
 	public String viewDashboard(@Valid @ModelAttribute("user") User user, @PathVariable String username,
 			BindingResult result, Model model) {
-		String message = "";
+		String message = "errorpage";
+		if (user.getUsername().equals(username)) {
+			logger.info("User: " + user.getUsername() + " viewing dashboard.");
+			message = "dashboard";
+		}
+
+		return message;
+	}
+
+	@RequestMapping(value = "/profile/{username}", method = RequestMethod.GET)
+	public String viewProfile(@Valid @ModelAttribute("user") User user, @PathVariable String username,
+			BindingResult result, Model model) {
+		String message = "errorpage";
 		if (result.hasErrors()) {
 			message = "errorpage";
 		} else if (user.getUsername().equals(username)) {
+			logger.info("User: " + user.getUsername() + " viewing own profile.");
 			message = "userprofile";
 		} else {
 			model.addAttribute("fetchUser", userService.findByUserName(username));
+			logger.info("User: " + user.getUsername() + " viewing profile of user " + username);
 			message = "userprofile";
 		}
 

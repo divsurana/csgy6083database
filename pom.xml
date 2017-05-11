@@ -113,28 +113,28 @@
 
 
 		<!-- Servlet API -->
-        <!-- http://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-        <dependency>
+		<!-- http://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- Jstl for jsp page -->
-        <!-- http://mvnrepository.com/artifact/javax.servlet/jstl -->
-        <dependency>
+		<!-- http://mvnrepository.com/artifact/javax.servlet/jstl -->
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>4.2.0.Final</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>javax.transaction</groupId>
 			<artifactId>jta</artifactId>
@@ -145,7 +145,7 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>4.1.6.RELEASE</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
@@ -156,6 +156,13 @@
 					<artifactId>spring-aop</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<!-- Log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
 		</dependency>
 	</dependencies>
 </project>

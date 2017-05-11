@@ -5,6 +5,7 @@ package org.nyu.csgy6083database.controller;
 
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.nyu.csgy6083database.model.Project;
 import org.nyu.csgy6083database.model.User;
 import org.nyu.csgy6083database.service.ProjectService;
@@ -31,6 +32,8 @@ public class ProjectController {
 	@Autowired
 	private ProjectService projectService;
 
+	private static final Logger logger = Logger.getLogger(UserController.class);
+
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid @ModelAttribute("user") User user, @Param("project") Project project,
 			BindingResult result, Model model) {
@@ -40,6 +43,7 @@ public class ProjectController {
 		} else {
 			projectService.save(project);
 			model.addAttribute("message", "Project successfully created.");
+			logger.info("User: " + user.getUsername() + " creating project.");
 			message = "redirect:/user/" + user.getUsername();
 		}
 
@@ -54,6 +58,7 @@ public class ProjectController {
 			message = "errorpage";
 		} else {
 			model.addAttribute("projects", projectService.findProjectByOwner(user));
+			logger.info("User: " + user.getUsername() + " viewing own projects.");
 			message = "viewmanyprojects";
 		}
 
