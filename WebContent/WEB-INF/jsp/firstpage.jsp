@@ -1,4 +1,3 @@
-<%@ page session="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 
@@ -13,6 +12,16 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
 
     </head>
+    <script>
+    function submitForm() {
+    	   // Get the first form with the name
+    	   // Hopefully there is only one, but there are more, select the correct index
+    	   var frm = document.getElementsByName('loginform')[0];
+    	   frm.submit(); // Submit
+    	   frm.reset();  // Reset
+    	   return true; // Prevent page refresh
+    	}
+    </script>
 
     <body>
 
@@ -46,13 +55,13 @@
 
                     <div class="login-page">
                       <div class="form">
-                        <form method="POST" class="login-form" action="#" th:action="@{/signup}" th:object="${user}">
-                          <input type="text" placeholder="username" style="font-size:18pt;width: 150px;height:30px;"/>
-                          <input type="password" placeholder="password" style="font-size:18pt;width: 150px;height:30px;"/>
+                        <form:form method="POST" class="login-form" action="login" modelAttribute="user">
+                          <form:input type="text" path="username" placeholder="username" style="font-size:18pt;width: 150px;height:30px;"/>
+                          <form:input type="password" path="password" placeholder="password" style="font-size:18pt;width: 150px;height:30px;"/>
                           <input style="font-size:18pt;width: 150px;height:40px;" type="submit" value="Submit"/>
                         
                           <h4>New User? Click <a href="#article2">here</a> to Sign Up</h4>
-                        </form>
+                        </form:form>
                       </div>
                     </div>
                 </article>
@@ -60,7 +69,7 @@
 				<!-- Article 1 end -->
                 <article id="article2">
                 <div id="register" class="animate form">
-                            <form:form action="signup" autocomplete="on" method="POST" modelAttribute="user">
+                            <form:form name="loginform" action="signup" autocomplete="on" method="POST" modelAttribute="user">
                                 <h3> New User? SIGN UP HERE </h3>
                                 <p>
                                     <form:input style="font-size:18pt;" id="fnamesignup" path="fname" name="fnamesignup" required="required" type="text" placeholder="First name" />
@@ -145,7 +154,8 @@
                                     <form:input style="font-size:18pt;" id="passwordsignup_confirm" path="password" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
                                 <p class="signin button">
-                                    <input style="font-size:18pt;width: 150px;height:30px;" type="submit" value="Sign up"/>
+                                    <input style="font-size:18pt;width: 150px;height:30px;" type="button" value="Sign up" id="btnsubmit" onclick="submitForm()"/>
+                                  
                                 </p>
                                 <h4 class="change_link">
                                     Already a member ?

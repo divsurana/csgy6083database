@@ -12,16 +12,16 @@
     <title>Dashboard</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/sb-admin.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/plugins/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard.html">Fundstarter</a>
+                <a class="navbar-brand" href="dashboard.jsp">Fundstarter</a>
             </div>
             <!-- Top Menu Items -->
 
@@ -65,7 +65,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="userprofile.html"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a href="userprofile.jsp"><i class="fa fa-fw fa-user"></i> Profile</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
@@ -84,19 +84,19 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="dashboard.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="dashboard.jsp"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="projtable.html">Your Projects</a>
+                        <a href="projtable.jsp">Your Projects</a>
                     </li>
                     <li>
-                        <a href="yourcomments.html">Your comments</a>
+                        <a href="yourcomments.jsp">Your comments</a>
                     </li>
                     <li>
-                        <a href="yourpledges.html">Your Pledges</a>
+                        <a href="yourpledges.jsp">Your Pledges</a>
                     </li>
                     <li>
-                        <a href="yourlikes.html">Things you liked</a>
+                        <a href="yourlikes.jsp">Things you liked</a>
                     </li>
                 </ul>
             </div>
@@ -131,7 +131,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#"></a>
+                            <a href=""></a>
                                 <div class="panel-footer">
                                     <span class="pull-left">View Details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
