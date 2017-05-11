@@ -44,4 +44,17 @@ public class CommentsController {
 
 		return message;
 	}
+
+	@RequestMapping(value = "/own", method = RequestMethod.GET)
+	public String viewOwnComments(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
+		String message = "";
+		if (result.hasErrors()) {
+		} else {
+
+			model.addAttribute("comments", commentsService.findCommentsByUser(user));
+			message = "yourcomments";
+		}
+
+		return message;
+	}
 }

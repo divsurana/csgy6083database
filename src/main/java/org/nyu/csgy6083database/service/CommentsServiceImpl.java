@@ -3,7 +3,10 @@
  */
 package org.nyu.csgy6083database.service;
 
+import java.util.List;
+
 import org.nyu.csgy6083database.model.Comments;
+import org.nyu.csgy6083database.model.User;
 import org.nyu.csgy6083database.repository.CommentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +29,11 @@ public class CommentsServiceImpl implements CommentsService {
 	@Override
 	public Comments save(Comments comments) {
 		return commentsRepository.save(comments);
+	}
+
+	@Override
+	public List<Comments> findCommentsByUser(User user) {
+		return commentsRepository.findCommentsByUser(user);
 	}
 
 }

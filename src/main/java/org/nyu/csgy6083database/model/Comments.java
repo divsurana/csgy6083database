@@ -28,7 +28,7 @@ public class Comments implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 3145601753128679531L;
+	private static final long serialVersionUID = 6324670820759922413L;
 
 	@Id
 	@ManyToOne
@@ -53,7 +53,7 @@ public class Comments implements Serializable {
 		/**
 		 * 
 		 */
-		private static final long serialVersionUID = 134203303751109629L;
+		private static final long serialVersionUID = 6799231914204502710L;
 		private User user;
 		private Project project;
 
