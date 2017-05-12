@@ -201,7 +201,7 @@ fieldset {
 			</>
 			<fieldset>
 				<form:select name="category" path="pcategory" id="category"
-					style="font-size:15pt" />
+					style="font-size:15pt" >
 				<option value="cat0">Project category</option>
 				<option value="cat1">Jazz</option>
 				<option value="cat2">Pop</option>
